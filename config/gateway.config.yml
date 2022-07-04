@@ -1,0 +1,29 @@
+http:
+  port: 3333
+admin:
+  port: 9876
+  host: localhost
+apiEndpoints:
+  weather:
+    host: localhost
+    paths: "/onecall"
+
+serviceEndpoints:
+  httpWeather:
+    url: "https://api.openweathermap.org/data/2.5"
+
+policies:
+  - cors
+  - expression
+  - log
+  - proxy
+  - rate-limit
+pipelines:
+  weather:
+    apiEndpoints:
+      - weather
+    policies:
+      - proxy:
+          - action:
+              serviceEndpoint: httpWeather
+              changeOrigin: true
