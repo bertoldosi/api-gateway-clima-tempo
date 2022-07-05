@@ -6,9 +6,11 @@ admin:
 apiEndpoints:
   weather:
     host: localhost
+    methods: "GET"
     paths: "/onecall"
   geo:
     host: localhost
+    methods: "GET"
     paths: "/reverse"
 
 serviceEndpoints:
