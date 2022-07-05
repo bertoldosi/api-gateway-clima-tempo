@@ -6,14 +6,14 @@ admin:
 
 apiEndpoints:
   api:
-    host: "localhost"
+    host: localhost
     paths: "/ip"
   weather:
-    host: localhost
+    host: api-gateway-clima-tempo.herokuapp.com
     methods: "GET"
     paths: "/onecall"
   geo:
-    host: localhost
+    host: api-gateway-clima-tempo.herokuapp.com
     methods: "GET"
     paths: "/reverse"
 
