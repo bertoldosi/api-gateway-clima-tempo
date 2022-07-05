@@ -7,17 +7,21 @@ apiEndpoints:
   weather:
     host: localhost
     paths: "/onecall"
+  geo:
+    host: localhost
+    paths: "/reverse"
 
 serviceEndpoints:
   httpWeather:
     url: "https://api.openweathermap.org/data/2.5"
+  httpGeo:
+    url: "https://api.openweathermap.org/geo/1.0"
 
 policies:
   - cors
   - expression
   - log
   - proxy
-  - rate-limit
 pipelines:
   weather:
     apiEndpoints:
@@ -26,4 +30,12 @@ pipelines:
       - proxy:
           - action:
               serviceEndpoint: httpWeather
+              changeOrigin: true
+  geo:
+    apiEndpoints:
+      - geo
+    policies:
+      - proxy:
+          - action:
+              serviceEndpoint: httpGeo
               changeOrigin: true
