@@ -3,7 +3,11 @@ http:
 admin:
   port: 9876
   host: localhost
+
 apiEndpoints:
+  api:
+    host: "localhost"
+    paths: "/ip"
   weather:
     host: localhost
     methods: "GET"
@@ -14,6 +18,8 @@ apiEndpoints:
     paths: "/reverse"
 
 serviceEndpoints:
+  httpbin:
+    url: "https://httpbin.org"
   httpWeather:
     url: "https://api.openweathermap.org/data/2.5"
   httpGeo:
@@ -25,6 +31,15 @@ policies:
   - log
   - proxy
 pipelines:
+  defaul:
+    apiEndpoints:
+      - api
+    policies:
+      - proxy:
+          - action:
+              serviceEndpoint: httpbin
+              changeOrigin: true
+
   weather:
     apiEndpoints:
       - weather
