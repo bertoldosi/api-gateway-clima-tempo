@@ -1,6 +1,6 @@
 ## 📖 Sobre:
 
-Um api gateway desenvolvido em express-gateway para mediar as requisições do client clima-tempo. Com esse gateway é possível obter a temperatura semanal de todas as cidades Brasileira. Também é possível obter a latitude e longetude das cidades.
+Um api gateway desenvolvido em express-gateway para mediar as requisições do client clima-tempo. Com esse gateway é possível obter a temperatura semanal de todas as cidades Brasileira.
 
 ---
 
